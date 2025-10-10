@@ -1,1 +1,1 @@
-{"wallpapers": ["example.png"], "type": "grow", "step": "30"}
+{"wallpapers": ["example.png"], "path": "ur_path", "type": "grow", "step": "30"}
