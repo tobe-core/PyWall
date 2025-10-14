@@ -21,40 +21,38 @@ if (len(sys.argv) < 2):
     help_text()
     exit()
 else:
-    if (sys.argv[1] == "help"):
-        help_text()
-        exit()
-    elif (sys.argv[1] == "save"):
-        with open(json_path, 'w') as f:
-            configs["wallpapers"].append(sys.argv[2])
-            json.dump(configs, f)
-            f.close()
-        exit()
-    elif (sys.argv[1] == "remove"):
-        configs["wallpapers"].remove(str(sys.argv[2]))
-        with open(json_path, 'w') as f:
-            json.dump(configs, f)
-            f.close()
-        exit()
-    elif (sys.argv[1] == "random"):
-        os.system("swww img --transition-type " + configs["type"] + " --transition-step " + configs["step"] + " " + configs["path"] + random.choice(configs["wallpapers"]))
-        exit()
-    elif (sys.argv[1] == "list"):
-        for walls in configs["wallpapers"]:
-            print(f"- {walls}")
-        exit()
-    elif (sys.argv[1] == "type"):
-        with open(json_path, 'w') as f:
-            configs["type"] = str(sys.argv[2])
-            json.dump(configs, f)
-            f.close()
-        exit()
-    elif (sys.argv[1] == "step"):
-        with open(json_path, 'w') as f:
-            configs["step"] = str(sys.argv[2])
-            json.dump(configs, f)
-            f.close()
-        exit()
-    else:
-        help_text()
-        exit()
+    match str(sys.argv[1]):
+        case "help":
+            print("hola")
+            exit()
+        case "save":
+            with open(json_path, 'w') as f:
+                configs["wallpapers"].append(sys.argv[2])
+                json.dump(configs, f)
+                f.close()
+            exit()
+        case "remove":
+            configs["wallpapers"].remove(str(sys.argv[2]))
+            with open(json_path, 'w') as f:
+                json.dump(configs, f)
+                f.close()
+            exit()
+        case "random":
+            os.system("swww img --transition-type " + configs["type"] + " --transition-step " + configs["step"] + " " + configs["path"] + random.choice(configs["wallpapers"]))
+            exit()
+        case "list":
+            for walls in configs["wallpapers"]:
+                print(f"- {walls}")
+            exit()
+        case "type":
+            with open(json_path, 'w') as f:
+                configs["type"] = str(sys.argv[2])
+                json.dump(configs, f)
+                f.close()
+            exit()
+        case "step":
+            with open(json_path, 'w') as f:
+                configs["step"] = str(sys.argv[2])
+                json.dump(configs, f)
+                f.close()
+            exit()
