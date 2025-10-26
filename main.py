@@ -23,8 +23,7 @@ if (len(sys.argv) < 2):
 else:
     match str(sys.argv[1]):
         case "help":
-            print("hola")
-            exit()
+            help_text()
         case "save":
             with open(json_path, 'w') as f:
                 configs["wallpapers"].append(sys.argv[2])
