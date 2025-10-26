@@ -24,7 +24,7 @@ else:
     match str(sys.argv[1]):
         case "help":
             help_text()
-        case "save":
+        case "add":
             with open(json_path, 'w') as f:
                 configs["wallpapers"].append(sys.argv[2])
                 json.dump(configs, f)
