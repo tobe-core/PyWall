@@ -40,9 +40,8 @@ else:
             os.system("swww img --transition-type " + configs["type"] + " --transition-step " + configs["step"] + " " + configs["path"] + random.choice(configs["wallpapers"]))
             exit()
         case "list":
-            for walls in configs["wallpapers"]:
-                print(f"- {walls}")
-            exit()
+            for i in range(0, len(configs["wallpapers"])):
+                print(f"{i + 1} - {configs["wallpapers"][i]}")
         case "type":
             with open(json_path, 'w') as f:
                 configs["type"] = str(sys.argv[2])
