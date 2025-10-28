@@ -24,6 +24,9 @@ else:
     match str(sys.argv[1]):
         case "help":
             help_text()
+        case "set":
+            os.system("swww img --transition-type " + configs["type"] + " --transition-step " + configs["step"] + " " + configs["path"] + configs["wallpapers"][int(sys.argv[2])])
+            exit()
         case "add":
             with open(json_path, 'w') as f:
                 configs["wallpapers"].append(sys.argv[2])
